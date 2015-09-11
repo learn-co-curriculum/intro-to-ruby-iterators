@@ -1,32 +1,237 @@
 # Intro To Ruby Iterators
 
-## Outline
+## Objectives
 
-1. Explain Iterators vs Loops
+1. Understand the difference between looping and iterating. 
+2. Recognize when to use one over the other.
+3. Learn how iterators work and understand the syntax of the code used to call them. 
 
-  A. methods on objects. Like loops, but for things.
-  B. Abstract logic away.
+## Looping vs. Iteration
 
-2. Basic `each` example
+Looping is a programming construct that allows you to tell your program to do something a certain number of times, or when a certain condition is met. Iteration, on the other hand, is a way to operate on an object like an array, that is a collection of data, and do something with each element of that collection. 
 
-Calling each on an array. printing Hello. How many times did it print?
-creating an iterator to keep track of count and incrementing it in loop and printing count.
-using that iterator to print a value from the array.
+Let's say that we are writing a program to annoy our little brother. We don't want to annoy him *too much* though, or else we might get grounded. So, our program, when it runs, will `#puts` out "Stop hitting yourself!" seven times, and then stop. For a task like this, in which we need to preform a task a certain, discrete number of times, we would use a loop. 
 
-introduce the yielded member of the array. syntax (do / end and pipes). concept (refer to above).
+Let's take a look: 
 
-simple example.
+```ruby
+7.times do 
+	puts "Stop hitting yourself!"
+end
+```
 
-{} syntax
+What if we want to output the phrase only *until* our little brother calls out "Mommmm!!"? We can stick with a loop construct like `while`:
 
-iterators return values
+```ruby
+while input != "Mommmm!!"
+	puts "Stop hitting yourself!"
+	input = gets.chomp
+end
+```
 
-encapsulate other logic
+However, what if we have three little brothers: Tom, Tim and Jim, and we want to output "Stop hitting yourself, < little brother's name >!" once for each brother? Let's try that out using a loop with the `while` construct: 
 
-example of another iterator - all?
+```ruby
+brothers = ["Tom", "Tim", "Jim"]
 
-iterator vs loops can simplify more than just iteration.
+count = 0
+while count <= brothers.length 
+	puts "Stop hitting yourself #{brother}!"
+	count += 1
+end
+```
 
-example of using a block to transform a method to an iterator - count
+In order to output a simple phrase using each brother's name from our collection with a `while` loop we need to:
 
-summary iterators vs loops, they yield you the elements very easily and can encapsulate a lot of cool logic.
+1. Establish a counter
+2. Set the condition for the `while` loop
+3. Increment the counter at the bottom of the loop
+
+That's a lot of code to accomplish such a simple task. In fact, a loop isn't a good tool for this job. Since we are now operating on a collection of data and seeking to *do something* with each element of that collection, we want to use an **iterator**. Iterators are methods that you can call on a collection, like an array, to loop over each member of that collection and do something to or with that member of the collection. Let's take a look in the next section. 
+
+## Using `#each`
+
+The `#each` method is a prime example of an iterator. Here's a boilerplate example of it's usage:
+
+```ruby
+array.each do |array_element|
+	do something with the array_element
+end
+```
+
+`#each` is called on a collection (an array, for the purposes of this example) and followed by a block (code between the `do`/`end`. It passes each member of the collection into the block, giving that code access to the collection member. 
+
+Let's take a closer look at some of these concepts.
+
+### What is a block?
+
+A block is a chunck of code between braces, `{ }` or between `do`/`end` keywords that you can associate with a method invocation, almost as if a block was an argument being passed to that method. There are some methods, like iterator methods, that can be called *with a block*, i.e. accompanied by a block denoted with `{ }` or `do`/`end`. Such a method would run and pass, or yield, data to the code in the block for that code to operate on or do something with. 
+
+### What are the `| |`?
+
+Those are called "pipes". When invoking an iterator like `#each`, the variable name inside the pipes acts as an argument that is being passed into the block. The iterator will pass, or yield, each element of the collection on which it is called to the block. Each element, as it gets passed into the block, will be equal to the variable name inside the pipes. Think of it like this: 
+
+* Call, or run, the code in the block once for each element of the collection. 
+* Pass a single element of the collection into the block every time the code in the block is called, or run. Start with the first element in the collection, and then move on to the second element, then the third, etc. 
+* Every time you call the code in the block and pass in an element from the collection, set the variable name from between the pipes equal to that element. 
+
+This is exactly what happens when you define a method to accept and argument and then call that method with a real argument: 
+
+```ruby
+def hi_there(name)
+	puts "Hi, #{name}"
+end
+
+hi_there("Sophie")
+ -> "Hi, Sophie"
+```
+
+Think of the variable between the pipes like the `name` variable we are using to define our argument. 
+
+
+The variable name inside the pipes is more or less arbitrary. For example:
+
+```ruby
+brothers = ["Tim", "Tom", "Jim"]
+brothers.each do |brother|
+	puts "Stop hitting yourself #{brother}!"
+end
+```
+
+Will output the same thing as:
+
+```ruby
+brothers = ["Tim", "Tom", "Jim"]
+brothers.each do |hippo|
+	puts "Stop hitting yourself #{hippo}!"
+end
+```
+Which is: 
+
+```ruby
+Stop hitting yourself Tim!
+Stop hitting yourself Tom!
+Stop hitting yourself Jim!
+```
+We should, however, be reasonable and sensical when we name our variables. If your collection is called `brothers`, name the variable between the pipes `brother`. If you collection is called `apples`, name your variable `apple`. 
+
+
+### A Closer Look
+
+Let's revisit our example from above and break it down, step by step:
+
+```ruby
+brothers = ["Tim", "Tom", "Jim"]
+brothers.each do |brother|
+	puts "Stop hitting yourself #{brother}!"
+end
+```
+
+Here, the `#each` method takes each element of the `brothers` array, one at a time, and passes, or **yields**, it into the block of code between the `do`/`end` keywords. It makes each element of the array available to the block by assigning it to the variable `brother`. It does so by placing that variable name in between the pipes `| |`. 
+
+In summary, `#each` yields each item of the collection on which it is called to the block that it is called with it. It keeps track of which element of the collection it is manipulating as it moves through the collection. During the first step of the iteration, `#each` will yield the first array element to the block. At that point in time, inside the block, `brother` will equal "Tim". During the second step of the iteration, `brother` will equal "Tom" and so on. 
+
+Iterators like `#each` are smart––they don't need a separate counter variable and manual incrementation of that variable to know how many times to do something. They use the number of items in the collection on which they are called to determine how many times they will do something. 
+
+Let's set a `counter` variable and manually increment it in order to see the `#each` method in action:
+
+```ruby
+brothers = ["Tim", "Tom", "Jim"]
+counter = 1
+brothers.each do |brother|
+	puts "This is loop number #{counter}"
+	puts "Stop hitting yourself #{brother}!"
+	counter += 1
+end
+```
+
+Copy and paste the above code into IRB. You should see this output:
+
+```bash
+This is loop number 1
+Stop hitting yourself Tim!
+This is loop number 2
+Stop hitting yourself Tom!
+This is loop number 3
+Stop hitting yourself Jim!
+ => ["Tim", "Tom", "Jim"]
+```
+
+See that, during loop number 1, the string "Tim" was yielded to the block and the variable name `brother`, when interpolated into the string we `#puts`ed out, was set equal to "Tim". During loop number 2, the same thing happened with "Tom", and during loop number 3, the same thing happened with "Jim". There was no loop number four because the `#each` iterator operated on each member of the array on which it was called and then stopped. 
+
+### A Note on Return Values
+
+Different iterators have different return values. Notice that the return value of the call to `#each` above returned `["Tim", "Tom", "Jim"]`––the original array. The `#each` method will always return the original collection on which it was called. 
+
+### The `{ }` Syntax
+
+Another way of establishing a code block that you may encounter is to use curly brackets, `{ }`, instead of the `do`/`end` keywords. Let's take a look:
+
+```ruby
+brothers = ["Tim", "Tom", "Jim"]
+brothers.each { |brother| puts "Stop hitting yourself #{brother}!" }
+```
+
+It is appropriate to use the `{ }` syntax when the code in the block is short and can fit on one line. 
+
+## Using `#all?`
+
+Let's take a look at another iterator. We'll see that it operators in the same way. The `#all?` method is called on a collection. It passes each element of the collection, one at a time, into a block of code. If the code inside the block evaluates to `true` for every element of the collection, then `#all?` will return true. 
+
+Let's take a look:
+
+```ruby
+numbers = [1, 3, 5, 7]
+
+numbers.all? do |number|
+	number.odd?
+end
+```
+
+In this example, `#all?` passes each number into the block, setting the variable `number` equal to each individual element that is passes in at each step of the iteration. 
+
+The block calls the method `#odd?` on the number. The `#odd?` method returns `true` if the number is odd and `false` if it is even. 
+
+What would happen if we changed our `numbers` array by adding the number `2`?
+
+```ruby
+numbers << 2
+# numbers = [1, 3, 5, 7, 2]
+numbers.all? do |number|
+	number.odd?
+end
+```
+
+If you guessed that `#all?` would return `false`, you were right. Let's take a closer look:
+
+```ruby
+numbers << 2
+# numbers = [1, 3, 5, 7, 2]
+numbers.all? do |number|
+	result = number.odd?
+	puts "It is #{result} that #{number} is odd"
+	result  
+end
+```
+
+This should result in the following output to your terminal: 
+
+```ruby
+It is true that 1 is odd
+It is true that 3 is odd
+It is true that 5 is odd
+It is true that 7 is odd
+It is false that 2 is odd
+ => false 
+```
+
+We can see the output of each individual number being evaluated in turn. We can also see that the final result or return value of the `#all?` method call is `false`. 
+
+
+## Conclusion
+
+Both loops and iterators are powerful tools in Ruby, but they're not right for every job. Loops are useful when you need to tell your program to do something a certain number of times or to do something based on a certain conditions. Iterators are useful for operating on a collection of objects, and even preforming complex operations on the members of that collection. Because iterators are called with blocks, it's easy to carry out complex logic or tasks using each individual member of a collection of objects. 
+
+
+
+
