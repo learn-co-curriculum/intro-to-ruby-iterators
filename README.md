@@ -209,60 +209,6 @@ brothers.each{|brother| puts "Stop hitting yourself #{brother}!"}
 
 It is appropriate to use the `{ }` syntax when the code in the block is short and can fit on one line.
 
-## Using `#all?`
-
-Let's take a look at another iterator. We'll see that it operators in the same way. The `#all?` method is called on a collection. It passes each element of the collection, one at a time, into a block of code. If the code inside the block evaluates to `true` for every element of the collection, then `#all?` will return true.
-
-Let's take a look:
-
-```ruby
-numbers = [1, 3, 5, 7]
-
-numbers.all? do |number|
-	number.odd?
-end
-```
-
-In this example, `#all?` passes each number into the block, setting the variable `number` equal to each individual element that is passes in at each step of the iteration.
-
-The block calls the method `#odd?` on the number. The `#odd?` method returns `true` if the number is odd and `false` if it is even.
-
-What would happen if we changed our `numbers` array by adding the number `2`?
-
-```ruby
-numbers << 2
-# numbers = [1, 3, 5, 7, 2]
-numbers.all? do |number|
-	number.odd?
-end
-```
-
-If you guessed that `#all?` would return `false`, you were right. Let's take a closer look:
-
-```ruby
-numbers << 2
-# numbers = [1, 3, 5, 7, 2]
-numbers.all? do |number|
-	result = number.odd?
-	puts "It is #{result} that #{number} is odd"
-	result  
-end
-```
-
-This should result in the following output to your terminal:
-
-```ruby
-It is true that 1 is odd
-It is true that 3 is odd
-It is true that 5 is odd
-It is true that 7 is odd
-It is false that 2 is odd
- => false
-```
-
-We can see the output of each individual number being evaluated in turn. We can also see that the final result or return value of the `#all?` method call is `false`.
-
-
 ## Conclusion
 
 Both loops and iterators are powerful tools in Ruby, but they're not right for every job. Loops are useful when you need to tell your program to do something a certain number of times or to do something based on a certain conditions. Iterators are useful for operating on a collection of objects, and even preforming complex operations on the members of that collection. Because iterators are called with blocks, it's easy to carry out complex logic or tasks using each individual member of a collection of objects.
