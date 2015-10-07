@@ -21,7 +21,7 @@ Let's take a look:
 
 ```ruby
 7.times do
-	puts "Stop hitting yourself!"
+  puts "Stop hitting yourself!"
 end
 ```
 
@@ -30,8 +30,8 @@ What if we want to output the phrase only *until* our little brother calls out "
 ```ruby
 input = ""
 while input != "Mommmm!!"
-	puts "Stop hitting yourself!"
-	input = gets.chomp
+  puts "Stop hitting yourself!"
+  input = gets.chomp
 end
 ```
 
@@ -42,8 +42,8 @@ brothers = ["Tom", "Tim", "Jim"]
 
 count = 0
 while count <= brothers.length-1
-	puts "Stop hitting yourself #{brothers[count]}!"
-	count += 1
+  puts "Stop hitting yourself #{brothers[count]}!"
+  count += 1
 end
 ```
 
@@ -65,7 +65,7 @@ The `#each` method is a prime example of an iterator. Here's a boilerplate examp
 ```ruby
 primary_colors = ["Red", "Yellow", "Blue"]
 primary_colors.each do |color|
-	puts "Primary Color #{color} is #{color.length} letters long."
+  puts "Primary Color #{color} is #{color.length} letters long."
 end
 ```
 
@@ -76,8 +76,8 @@ A block is passed to `#each`, opened by the code that starts with `do` and close
 ```ruby
 primary_colors = ["Red", "Yellow", "Blue"]
 primary_colors.each do |color| # do begins a block
-	# the lines between the do/end are the block's body
-	puts "Primary Color #{color} is #{color.length} letters long."
+  # the lines between the do/end are the block's body
+  puts "Primary Color #{color} is #{color.length} letters long."
 end # end terminates the block
 ```
 
@@ -115,11 +115,10 @@ This is exactly what happens when you define a method to accept and argument and
 
 ```ruby
 def hi_there(name)
-	puts "Hi, #{name}"
+  puts "Hi, #{name}"
 end
 
-hi_there("Sophie")
- -> "Hi, Sophie"
+hi_there("Sophie") #=> "Hi, Sophie"
 ```
 
 Think of the variable between the pipes like the `name` variable we are using to define our argument.
@@ -129,7 +128,7 @@ The variable name inside the pipes is more or less arbitrary. For example:
 ```ruby
 brothers = ["Tim", "Tom", "Jim"]
 brothers.each do |brother|
-	puts "Stop hitting yourself #{brother}!"
+  puts "Stop hitting yourself #{brother}!"
 end
 ```
 
@@ -138,9 +137,10 @@ Will output the same thing as:
 ```ruby
 brothers = ["Tim", "Tom", "Jim"]
 brothers.each do |hippo|
-	puts "Stop hitting yourself #{hippo}!"
+  puts "Stop hitting yourself #{hippo}!"
 end
 ```
+
 Which is:
 
 ```ruby
@@ -158,7 +158,7 @@ Let's revisit our example from above and break it down, step by step:
 ```ruby
 brothers = ["Tim", "Tom", "Jim"]
 brothers.each do |brother|
-	puts "Stop hitting yourself #{brother}!"
+  puts "Stop hitting yourself #{brother}!"
 end
 ```
 
@@ -174,9 +174,9 @@ Let's set a `counter` variable and manually increment it in order to see the `#e
 brothers = ["Tim", "Tom", "Jim"]
 counter = 1
 brothers.each do |brother|
-	puts "This is loop number #{counter}"
-	puts "Stop hitting yourself #{brother}!"
-	counter += 1
+  puts "This is loop number #{counter}"
+  puts "Stop hitting yourself #{brother}!"
+  counter += 1
 end
 ```
 
@@ -189,7 +189,7 @@ This is loop number 2
 Stop hitting yourself Tom!
 This is loop number 3
 Stop hitting yourself Jim!
- => ["Tim", "Tom", "Jim"]
+#=> ["Tim", "Tom", "Jim"]
 ```
 
 See that, during loop number 1, the string "Tim" was yielded to the block and the variable name `brother`, when interpolated into the string we `#puts`ed out, was set equal to "Tim". During loop number 2, the same thing happened with "Tom", and during loop number 3, the same thing happened with "Jim". There was no loop number four because the `#each` iterator operated on each member of the array on which it was called and then stopped.
