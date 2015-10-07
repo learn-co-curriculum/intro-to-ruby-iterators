@@ -5,7 +5,7 @@
 1. Understand the difference between looping and iterating.
 2. Learn how to pass a block to an iterator.
 3. `do;end` block syntax.
-4. '{}' block sytax.
+4. `{ }` block sytax.
 5. Capture a value yielded to the block by the iterator in `| |` (pipes).
 6. Use a captured yield value within the iterator's block.
 
