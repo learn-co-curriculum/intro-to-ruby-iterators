@@ -111,7 +111,7 @@ Those are called "pipes". When invoking an iterator like `#each`, the variable n
 * Pass a single element of the collection into the block every time the code in the block is called, or run. Start with the first element in the collection, and then move on to the second element, then the third, etc.
 * Every time you call the code in the block and pass in an element from the collection, set the variable name from between the pipes equal to that element.
 
-This is exactly what happens when you define a method to accept and argument and then call that method with a real argument:
+This is exactly what happens when you define a method to accept an argument and then call that method with a real argument:
 
 ```ruby
 def hi_there(name)
