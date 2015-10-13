@@ -111,7 +111,7 @@ Those are called "pipes". When invoking an iterator like `#each`, the variable n
 * Pass a single element of the collection into the block every time the code in the block is called, or run. Start with the first element in the collection, and then move on to the second element, then the third, etc.
 * Every time you call the code in the block and pass in an element from the collection, set the variable name from between the pipes equal to that element.
 
-This is exactly what happens when you define a method to accept and argument and then call that method with a real argument:
+This is exactly what happens when you define a method to accept an argument and then call that method with a real argument:
 
 ```ruby
 def hi_there(name)
@@ -211,4 +211,4 @@ It is appropriate to use the `{ }` syntax when the code in the block is short an
 
 ## Conclusion
 
-Both loops and iterators are powerful tools in Ruby, but they're not right for every job. Loops are useful when you need to tell your program to do something a certain number of times or to do something based on a certain conditions. Iterators are useful for operating on a collection of objects, and even preforming complex operations on the members of that collection. Because iterators are called with blocks, it's easy to carry out complex logic or tasks using each individual member of a collection of objects.
+Both loops and iterators are powerful tools in Ruby, but they're not right for every job. Loops are useful when you need to tell your program to do something a certain number of times or to do something based on a certain condition. Iterators are useful for operating on a collection of objects, and even preforming complex operations on the members of that collection. Because iterators are called with blocks, it's easy to carry out complex logic or tasks using each individual member of a collection of objects.
