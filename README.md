@@ -15,7 +15,7 @@ Looping is a programming construct that allows you to tell your program to do so
 
 Iteration, on the other hand, is a way to operate on a collection object, like an array, and do something with each element in that collection.
 
-Let's say that we are writing a program to annoy our little brother. We don't want to annoy him *too much* though, or else we might get grounded. So, our program, when it runs, will `#puts` "Stop hitting yourself!" seven times, and then stop. For a task like this, in which we need to preform a task a certain, discrete number of times, we would use a loop.
+Let's say that we are writing a program to annoy our little brother. We don't want to annoy him *too much* though, or else we might get grounded. So, our program, when it runs, will `#puts` "Stop hitting yourself!" seven times, and then stop. For a task like this, in which we need to perform a task a certain, discrete number of times, we would use a loop.
 
 Let's take a look:
 
