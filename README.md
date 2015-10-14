@@ -164,7 +164,7 @@ end
 
 Here, the `#each` method takes each element of the `brothers` array, one at a time, and passes, or **yields**, it into the block of code between the `do`/`end` keywords. It makes each element of the array available to the block by assigning it to the variable `brother`. It does so by placing that variable name in between the pipes `| |`.
 
-In summary, `#each` yields each item of the collection on which it is called to the block that it is called with it. It keeps track of which element of the collection it is manipulating as it moves through the collection. During the first step of the iteration, `#each` will yield the first array element to the block. At that point in time, inside the block, `brother` will equal "Tim". During the second step of the iteration, `brother` will equal "Tom" and so on.
+In summary, `#each` yields each item of the collection on which it is called to the block with which it is called. It keeps track of which element of the collection it is manipulating as it moves through the collection. During the first step of the iteration, `#each` will yield the first array element to the block. At that point in time, inside the block, `brother` will equal "Tim". During the second step of the iteration, `brother` will equal "Tom" and so on.
 
 Iterators like `#each` are smart – they don't need a separate counter variable and manual incrementation of that variable to know how many times to do something. They use the number of items in the collection on which they are called to determine how many times they will do something.
 
