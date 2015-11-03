@@ -118,7 +118,8 @@ def hi_there(name)
   puts "Hi, #{name}"
 end
 
-hi_there("Sophie") #=> "Hi, Sophie"
+hi_there("Sophie") # > "Hi, Sophie"
+# => nil 
 ```
 
 Think of the variable between the pipes like the `name` variable we are using to define our argument.
