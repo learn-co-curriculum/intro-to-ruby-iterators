@@ -105,7 +105,7 @@ Blocks are part of what make the Ruby language special, powerful, and loved.
 
 ### What are the `| |`?
 
-Those are called "pipes". When invoking an iterator like `#each`, the variable name inside the pipes acts as an argument that is being passed into the block. The iterator will pass, or yield, each element of the collection on which it is called to the block. Each element, as it gets passed into the block, will be equal to the variable name inside the pipes. Think of it like this:
+Those are called "pipes". When invoking an iterator like `#each`, the variable name inside the pipes acts as an argument that is being passed into the block. The iterator will pass, or yield, each element of the collection on which it is called, to the block. Each element, as it gets passed into the block, will be equal to the variable name inside the pipes. Think of it like this:
 
 * Call, or run, the code in the block once for each element of the collection.
 * Pass a single element of the collection into the block every time the code in the block is called, or run. Start with the first element in the collection, and then move on to the second element, then the third, etc.
