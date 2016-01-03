@@ -51,8 +51,8 @@ In order to output a simple phrase using each brother's name from our collection
 
 1. Establish a counter
 2. Set the condition for the `while` loop
-3. Increment the counter at the bottom of the loop
-4. Read data out of the array by index using the counter.
+3. Read data out of the array by index using the counter
+4. Increment the counter at the bottom of the loop
 
 That's a lot of code to accomplish such a simple task. In fact, a loop isn't a good tool for this job. Since we are now operating on a collection of data and seeking to *do something* with each element of that collection, we want to use an **iterator**.
 
