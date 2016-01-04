@@ -150,7 +150,7 @@ Stop hitting yourself Tom!
 Stop hitting yourself Jim!
 ```
 
-We should, however, be reasonable and sensical when we name our variables. If your collection is called `brothers`, name the variable between the pipes `brother`. If you collection is called `apples`, name your variable `apple`.
+We should, however, be reasonable and sensical when we name our variables. If your collection is called `brothers`, name the variable between the pipes `brother`. If your collection is called `apples`, name your variable `apple`.
 
 ### A Closer Look
 
