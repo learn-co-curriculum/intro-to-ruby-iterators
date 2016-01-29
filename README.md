@@ -218,4 +218,4 @@ Both loops and iterators are powerful tools in Ruby, but they're not right for e
 
 [`.each` on Codecademy](https://www.codecademy.com/en/courses/ruby-beginner-en-XYcN1/2/4?curriculum_id=5059f8619189a5000201fbcb)
 
-<a href='https://learn.co/lessons/intro-to-ruby-iterators' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-ruby-iterators' title='Intro To Ruby Iterators'>Intro To Ruby Iterators</a> on Learn.co and start learning to code for free.</p>
