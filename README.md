@@ -124,7 +124,7 @@ hi_there("Sophie") # > "Hi, Sophie"
 
 Think of the variable between the pipes like the `name` variable we are using to define our argument.
 
-The variable name inside the pipes is more or less arbitrary. For example:
+The variable name inside the pipes is totally arbitrary; the name is added for the programmer's sake. (Hat-tip to Matz: This is a great example of the Ruby language's design around human ease of use.) For example:
 
 ```ruby
 brothers = ["Tim", "Tom", "Jim"]
