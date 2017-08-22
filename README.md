@@ -71,7 +71,7 @@ end
 
 `#each` is called on the collection `primary_colors`, which is an array containing 3 individual strings.
 
-A block is passed to `#each`, opened by the code that starts with `do` and closed by the preceding `end`. Every `do` needs a closing `end`.
+A block is passed to `#each`, opened by the code that starts with `do` and closed by the `end`. Every `do` needs a closing `end`.
 
 ```ruby
 primary_colors = ["Red", "Yellow", "Blue"]
@@ -217,7 +217,5 @@ Both loops and iterators are powerful tools in Ruby, but they're not right for e
 ## Resources
 
 [`.each` on Codecademy](https://www.codecademy.com/en/courses/ruby-beginner-en-XYcN1/2/4?curriculum_id=5059f8619189a5000201fbcb)
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-ruby-iterators' title='Intro To Ruby Iterators'>Intro To Ruby Iterators</a> on Learn.co and start learning to code for free.</p>
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/intro-to-ruby-iterators'>Intro to Ruby Iterators</a> on Learn.co and start learning to code for free.</p>
