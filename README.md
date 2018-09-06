@@ -214,6 +214,6 @@ It is appropriate to use the `{ }` syntax when the code in the block is short an
 
 Both loops and iterators are powerful tools in Ruby, but they're not right for every job. Loops are useful when you need to tell your program to do something a certain number of times or to do something based on a certain condition. Iterators are useful for operating on a collection of objects, and even performing complex operations on the members of that collection. Because iterators are called with blocks, it's easy to carry out complex logic or tasks using each individual member of a collection of objects.
 
-## Resources
+
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/intro-to-ruby-iterators'>Intro to Ruby Iterators</a> on Learn.co and start learning to code for free.</p>
